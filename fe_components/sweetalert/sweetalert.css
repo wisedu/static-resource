@@ -1,0 +1,163 @@
+@keyframes animateErrorIcon {
+    0% {
+        transform: rotateX(100deg);
+        -webkit-transform: rotateX(100deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(0deg);
+        -webkit-transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.pulseWarning {
+    -webkit-animation: animateErrorIcon 0.5s;
+    animation: animateErrorIcon 0.5s;
+}
+
+@keyframes animateXMark {
+    0% {
+        transform: scale(0.4);
+        -webkit-transform: scale(0.4);
+        margin-top: 26px;
+        opacity: 0;
+    }
+    50% {
+        transform: scale(0.4);
+        -webkit-transform: scale(0.4);
+        margin-top: 26px;
+        opacity: 0;
+    }
+    80% {
+        transform: scale(1.15);
+        -webkit-transform: scale(1.15);
+        margin-top: -6px;
+    }
+    100% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+.pulseWarningIns {
+    animation: animateXMark 0.5s;
+}
+
+.sweet-overlay{
+	z-index: 20090801;
+}
+
+.sweet-alert {
+    padding: 16px 16px 24px 16px;
+    margin-bottom: 16px;
+    background-color: #ffffff;
+    border-radius: 0;
+    -webkit-box-shadow: 0 8px 14px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.25);
+    font-family: "Microsoft YaHei", "Arial-normal", "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    z-index: 99999999;
+}
+
+.sweet-alert h2{
+    font-size: 16px;
+    color: #222;
+    line-height: 28px;
+}
+
+.sweet-alert p{
+    font-size: 14px;
+    color: #222;
+    line-height: 20px;
+}
+
+.sweet-alert button {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    outline: none !important;
+    padding: 6px 8px;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 2px;
+    margin-top: 20px;
+    min-width: 80px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2)!important;
+    transition: all;
+    transition-duration: 300ms;
+}
+
+.sweet-alert button:focus,
+.sweet-alert button:hover,
+.sweet-alert button:active
+ {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+.sweet-alert button:hover,
+.sweet-alert button:focus,
+.sweet-alert button.focus {
+  color: #222222;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+.sweet-alert button:active,
+.sweet-alert button.active {
+  outline: 0;
+  background-image: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.sweet-alert button.cancel {
+  color: #222222;
+  background-color: #ffffff !important;
+  border: 1px solid #efefef !important;
+}
+.sweet-alert button.cancel:hover,
+.sweet-alert button.cancel:focus,
+.sweet-alert button.cancel.focus,
+.sweet-alert button.cancel:active,
+.sweet-alert button.cancel.active,
+.sweet-alert button.cancel:active,
+.sweet-alert button.cancel.active {
+  background-image: none;
+}
+
+
+.sweet-alert button[disabled] {
+    opacity: .6;
+    cursor: default;
+}
+
+
+.sweet-alert button.confirm {
+  color: #ffffff;
+  background-color: #2196f3 !important;
+  border: none;
+}
+.sweet-alert button.confirm:hover,
+.sweet-alert button.confirm:focus,
+.sweet-alert button.confirm.focus,
+.sweet-alert button.confirm:active,
+.sweet-alert button.confirm.active{
+  color: #ffffff;
+  background-color: #0d86ea !important;
+  border-color: none;
+}
+.sweet-alert button.confirm:active,
+.sweet-alert button.confirm.active {
+  background-image: none;
+}
+.sweet-alert h2{
+    margin: 16px 0 32px 0;
+}

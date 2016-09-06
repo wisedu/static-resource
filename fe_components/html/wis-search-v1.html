@@ -1,0 +1,511 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="wis-search">
+    <link rel="import" type="css" href="../iconfont/iconfont.css">
+    <style>
+        .show {display: block;}
+        .hide {display: none;}
+        .b-search {position: relative;overflow: visible;}
+        
+        .b-search-mh {
+            width: 100%;
+            /*height: 90px;*/
+            position: absolute;
+            top: 34px;
+            left: 0;
+            border: 1px solid #e6e6e6;
+            background-color: #ffffff;
+            box-shadow: 0 0 4px #c1c0c0;
+            z-index: 999;
+            display: none;
+        }
+        
+        .b-search-mh ul li {
+            overflow: hidden;
+            padding: 0 5px;
+            line-height: 40px;
+            cursor: pointer;
+            font-size: 14px;
+            list-style: none;
+        }
+        
+        .b-search-mh ul li:hover {background-color: #f2f2f2;}
+        .b-search-mh ul li span {float: left;margin-right: 8px;}
+        
+        .b-search-input-ctx {
+            display: block;
+            width: 225px;
+            margin-right: 0px!important;
+            margin-left: -6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .b-search-jx {
+            /*display: none;*/
+            padding: 20px;
+            width: 500px;
+            height: auto;
+            overflow: visible;
+            position: absolute;
+            top: 34px;
+            left: 0px;
+            border: 1px solid #e6e6e6;
+            background-color: #ffffff;
+            box-shadow: 0 0 4px #c1c0c0;
+            color: #999999;
+            z-index: 999;
+        }
+        
+        .b-group {position: relative;}
+        .b-option-minus:hover {color: #F44336;cursor: pointer;}
+        
+        .b-search-add-options {
+            font-size: 12px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            margin-top: 12px;
+            margin-left: 8px;
+        }
+        
+        .b-search-add-options span {
+            display: block;
+            float: left;
+            height: 20px;
+            font-size: 26px;
+            line-height: 18px;
+            font-weight: bold;
+            margin-top: -4px;
+        }
+        input::-ms-clear { display: none; }
+        .clear{
+            font-size: 20px;
+            position: absolute;
+            margin-left: -30px;
+            margin-top: 2px;
+            color: #767676;
+        }
+        .clear:hover{
+            color: #2196f3;
+        }
+        .b-search-input{width:calc(100% - 80px);display:inline-block;}
+        #searchBtn {float: right;margin-right: 46px;margin-top: 12px;}
+        .col-icon{padding: 4px 0 0 0;}
+        .icon-roundaddfill{font-size: 22px;float:left;margin-right: 4px;}
+        .icon-close{font-size: 10px;}
+    </style>
+    <template>
+        <div class="b-search ">
+            <a class="btn btn-primary btn-xs" id="b-search-icon-more" style="vertical-align:top" href="javascript:void(0);" on-click="handleShowAdvanceSearch">高级搜索</a>
+            <input id="b-search-input" class="b-search-input form-control" on-keyup="handleShowSimpleSearch"
+            type="text" placeholder="{{placeholder}}" /><a href="javascript:void(0)" class="clear" on-click="clearText"><i class="md md-clear"></i></a>
+            <!--简单搜索框-->
+            <div class="b-search-mh hide">
+                <ul>
+                    <template id="simpleSearch" is="dom-repeat" items="{{simple_items}}">
+                        <li on-click="handleSimpleSearch" on-keyup="handleSimpleSearch">
+                            <span>搜索</span>
+                            <span>{{item.caption}}</span>
+                            <span>：</span>
+                            <span class="b-search-input-ctx" name$="{{item.name}}" builder$="{{item.defaultBuilder}}"></span>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+            <!--高级搜索框-->
+            <div class="b-search-jx hide">
+                <h4>查询条件</h4>
+                <form role="form" class="b-form-inline" onsubmit="return false;">
+                    <template id="complexSearch" is="dom-repeat" items="{{complex_items}}">
+                        <div class="b-group bh-clearfix">
+                            <div class="form-group col-md-4">
+                                <select class="form-control" id="searchBy" on-change="searchByHandleClick"></select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <select class="form-control" id="searchConditon" on-change="handleConditonChanged"></select>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <input type="text" id="searchContent" placeholder="关键字" class="form-control">
+                            </div>
+                            <div class="form-group col-md-1 col-icon">
+                                <span id="minus" class="b-option-minus" on-click="removeRow"><i class="iconfont icon-close"></i></span>
+                            </div>
+                        </div>
+                    </template>
+                    <span class="b-search-add-options color-primary bh-color-primary" on-click="handleAddCondition">
+                        <i class="iconfont icon-roundaddfill"></i><div style="width:100px">添加条件</div>
+                    </span>
+                    <a class="btn btn-primary btn-xs bh-btn bh-btn-primary bh-btn-xs" id="searchBtn" href="javascript:void(0);" on-click="handleComplexSearch">查询</a>
+                </form>
+            </div>
+        </div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+    is: "wis-search",
+    properties: {
+        opts:{type: String, observer:"_optsChanged"},
+        id:{type:String},
+        items:{type:Array},
+        simple_items:{type:Array},
+        placeholder:{type: String},
+        defaultitems:{type:String, observer:"_defaultItemsChanged"},
+        default_items:{type:Array},
+        value:{type:String,notify: true},
+        str_options:{type:String},
+        builderlist:{type:Object},
+        simple_search:{type:Boolean, observer:"_simpleSearchChanged"},
+        complex_search:{type:Boolean, observer:"_complexSearchChanged"},
+        complex_items:{
+            type:Array,
+            value: function() {
+            return [];
+        }}
+    },
+    ready: function() {
+        // set this element's owner property
+        //监听外部事件
+        this.listen(document, "click", "handleDocument");
+        this.listen(this.root, "complex_search", "handleComplexSearch");
+    },
+    // listeners: {
+    //     'tap': 'searchByHandleClick'
+    // },
+    _simpleSearchChanged:function(){
+        if(this.simple_search){
+            this.__fireEnterSimpleSearch();
+        }
+    },
+    _complexSearchChanged:function(){
+        if(this.complex_search){
+            this.handleComplexSearch();
+        }
+    },
+    __fireEnterSimpleSearch: function(type){
+        var value = this.$$("#b-search-input").value;
+        var all_items = Polymer.dom(this.$$(".b-search-mh")).querySelectorAll("li .b-search-input-ctx");
+        var listSearch = [];
+        for(var i = 0; i < all_items.length; i++){
+            var item = all_items[i];
+            if(value != ""){
+                var builder = item.getAttribute("builder");
+                listSearch.push({"name":item.getAttribute("name"),"value":value,"builder":builder,linkOpt:"OR"});
+            }
+        }
+        this.value = listSearch;
+        this.fire("search_click",{"searchValue":listSearch,"type":"simple"});
+    },
+    handleShowSimpleSearch: function(e){
+        if(e.keyCode == 13){
+            if(e.target.value == ""){
+                this.value = [];
+                this.fire("search_click",{"searchValue":[],"type":"simple"});
+            }else{
+                var selected = Polymer.dom(this.$$(".b-search-mh")).querySelector("li.selected");
+                if(selected != undefined)
+                    this.handleSimpleSearch(selected);
+                else
+                    this.__fireEnterSimpleSearch("");
+            }
+        }else if(e.keyCode == 38){
+            var liList = Polymer.dom(this.$$(".b-search-mh")).querySelectorAll("li");
+            var index = getSimpleSelectedIndex(liList);
+            for (var i = liList.length - 1; i >= 0; i--) {
+                if($(liList[i]).hasClass("selected")){
+                    index = i-1;
+                    $(liList[i]).removeClass("selected");
+                }else if(index == i)
+                    $(liList[i]).addClass("selected");
+            };
+            if(index == -1)$(liList[liList.length - 1]).addClass("selected");
+        }else if(e.keyCode == 40){
+            //alert(40);//down
+            var liList = Polymer.dom(this.$$(".b-search-mh")).querySelectorAll("li");
+            var index = getSimpleSelectedIndex(liList);
+            for (var i = 0; i < liList.length; i++) {
+                if($(liList[i]).hasClass("selected")){
+                    index = i+1;
+                    $(liList[i]).removeClass("selected");
+                }else if(index == i)
+                    $(liList[i]).addClass("selected");
+            };
+            if(index == liList.length)$(liList[0]).addClass("selected");
+        }else{
+            var dom = this.$$(".b-search-mh");
+            $(".b-search-input-ctx", dom).each(function(){
+               this.innerHTML = e.target.value;
+            });
+
+            if(e.target.value == "")
+                $(dom).fadeOut(300);
+            else{
+                $(dom).fadeIn(300).removeClass("hide");
+            }
+        }
+    },
+    handleShowAdvanceSearch: function(){
+    	var dom = this.$$(".b-search-jx");
+        if(Polymer.dom(this.root).querySelectorAll(".b-group").length == 0)//默认里面又一个hide的b-group行
+            this.handleAddCondition(null);
+    	$(dom).fadeIn(300).removeClass("hide");
+    },
+    handleDocument: function(e){
+        //隐藏查询弹出框
+        var $searchinput = this.$$("#b-search-input");
+        var $searchmh = this.$$(".b-search-mh");
+        var $searchjx = this.$$(".b-search-jx");
+
+        if ( $((e.target || e.srcElement)).closest($searchmh).length == 0 && $((e.target || e.srcElement)).closest($searchinput).length == 0 ) {
+            $($searchmh).hide();
+        }
+        if ( $((e.target || e.srcElement)).closest($searchjx).length == 0 && $((e.target || e.srcElement)).closest("#b-search-icon-more").length == 0 ) {
+            $($searchjx).hide();
+        }
+    },
+    handleSimpleSearch: function(e){
+        //event.target
+
+        var sourceDOM = e.target || e.srcElement || e;
+        var name = sourceDOM.getAttribute("name");
+        var builder = sourceDOM.getAttribute("builder");
+        var value = sourceDOM.innerHTML;
+        if(name == undefined){
+            var dom = Polymer.dom(sourceDOM).querySelector(".b-search-input-ctx");
+            if(dom == undefined){
+                dom = Polymer.dom(sourceDOM.parentElement).querySelector(".b-search-input-ctx");
+                name = dom.getAttribute("name");
+                builder = dom.getAttribute("builder");
+                value = dom.innerHTML;
+            }else{
+                name = dom.getAttribute("name");
+                builder = dom.getAttribute("builder");
+                value = dom.innerHTML;
+            }
+        }
+
+        var listSearch = [{"name":name,"value":value,"builder":builder,linkOpt:"AND"}];
+        this.value = listSearch;
+        this.fire("search_click",{"searchValue":listSearch,"type":"simple"});
+        
+        $(this.$$(".b-search-mh")).hide();
+    },
+    handleComplexSearch: function(e){
+        var listSearch = [];
+        var listDOM = Polymer.dom(this.root).querySelectorAll(".b-group");
+        for (var i = 0; i < listDOM.length; i++) {
+            var listControlDOM = Polymer.dom(listDOM[i]).querySelectorAll(".form-control");
+            var name = "";
+            var value = "";
+            var conditon = "";
+            var text = "";
+            for (var j = 0; j < listControlDOM.length; j++) {
+                switch(listControlDOM[j].id){
+                    case "searchBy":
+                        name = listControlDOM[j].value;
+                    break;
+                    case "searchContent":
+                        value = listControlDOM[j].value;
+                        if(listControlDOM[j].attributes.displayvalue)
+                            text = listControlDOM[j].attributes.displayvalue.value;
+                        else
+                            text = value;
+                    break;
+                    case "searchConditon":
+                        conditon = listControlDOM[j].value;
+                    break;
+                }
+            };
+            if(value == "")continue;
+
+            listSearch.push({"text":text,"name":name,"value":value,"builder":conditon,linkOpt:"AND"});
+        };
+
+        this.$$("#b-search-input").value = "";
+        this.value = listSearch;
+		this.fire("search_click",{"searchValue":listSearch,"type":"complex"});
+        
+        $(this.$$(".b-search-jx")).hide();
+    },
+    _optsChanged: function(){
+        this.items = JSON.parse(this.opts);
+
+        this.str_options = [];
+        var simple_opts = [];
+        for(var i = 0; i < this.items.length; i++){
+            if(this.items[i].hidden)continue;
+            if(this.items[i].quickSearch == true || this.items[i].quickSearch == "true")
+                simple_opts.push(this.items[i]);
+                
+            this.str_options += '<option ' + (this.items[i].xtype?'xtype="' + this.items[i].xtype + '"':"") + ' ' + (this.items[i].url?'url="' + this.items[i].url + '"':"") + ' builder="' + this.items[i].builderList + '" defaultBuilder="' + this.items[i].defaultBuilder + '" value="' + this.items[i].name + '">' + this.items[i].caption + '</option>';
+        }
+        //this.$$("#searchBy").innerHTML = this.str_options;
+        this.simple_items = simple_opts;
+    },
+    _defaultItemsChanged: function(){
+        this.default_items = JSON.parse(this.defaultitems);
+        for (var i = 0; i < this.default_items.length; i++) {
+            this.handleAddCondition(null, null, this.default_items[i]);
+            //select.value = defaultValue.builder;
+            //input.value = defaultValue.value;
+            
+        }
+    },
+    handleAddCondition: function(e, detail, defaultValue){
+        if(!defaultValue)defaultValue = {name:"",value:"",builder:"equal"}
+        
+        this.complex_items.push({fields:this.str_options,conditon:[],content:""});
+        Polymer.dom(this.root).querySelector('template[id=complexSearch]').render();
+        Polymer.dom.flush();
+        
+        var searchBy = Polymer.dom(this.root).querySelectorAll('select[id=searchBy]');
+        for(var i=0; i<searchBy.length; i++){
+            if(searchBy[i].options.length == 0){
+                var hSearchBy = searchBy[i];
+                hSearchBy.innerHTML = this.str_options;
+                if(defaultValue.name)
+                    $(hSearchBy).val(defaultValue.name);
+                
+                var options = Polymer.dom(hSearchBy).querySelectorAll("option");
+                var option;
+                var condition = "";
+                for(var i = 0; i < options.length; i++){
+                    if(defaultValue.name == ""){
+                        option = options[0];
+                        break;
+                    }else if(defaultValue.name == options[i].value){
+                        option = options[i];
+                        break;
+                    }
+                }
+                if(option){
+                    var builder = option.attributes.builder.value;
+                    var aBuilderItems = this.builderlist[builder];
+                    var sBuilderOption = "";
+                    for(var i=0;i < aBuilderItems.length; i++){
+                        sBuilderOption += "<option value='" + aBuilderItems[i].name + "'>" + aBuilderItems[i].caption + "</option>";
+                    }
+                    var select = Polymer.dom(hSearchBy.parentElement.parentElement).querySelector("#searchConditon");
+                    select.innerHTML = sBuilderOption;
+                    $(select).val(defaultValue.builder);
+                    
+                    condition = $(":selected", select).val();
+                }
+                var input = Polymer.dom(hSearchBy.parentElement.parentElement).querySelector("#searchContent");
+                input.value = defaultValue.value;
+                $(input).attr("displayvalue", defaultValue.text);
+                var xtype = option.attributes["xtype"]?option.attributes["xtype"].value:undefined;
+                var url = option.attributes["url"]?option.attributes["url"].value:undefined;
+                
+                if(condition.indexOf("m_value_") > -1)
+                    this._rebuildContent(input, xtype, url, true);
+                else
+                    this._rebuildContent(input, xtype, url);
+                break;
+            }
+        }
+    },
+    searchByHandleClick: function(e){
+        // if(e.target.id == "searchBy"){
+            var options = Polymer.dom(e.target).querySelectorAll("option");
+            var option;
+            for(var i = 0; i < options.length; i++){
+                if(e.target.value == options[i].value){
+                    option = options[i];
+                }
+            }
+            if(option){
+                var builder = option.attributes.builder.value;
+                var aBuilderItems = this.builderlist[builder];
+                var sBuilderOption = "";
+                for(var i=0;i < aBuilderItems.length; i++){
+                    sBuilderOption += "<option value='" + aBuilderItems[i].name + "'>" + aBuilderItems[i].caption + "</option>";
+                }
+                var select = Polymer.dom(e.target.parentElement.parentElement).querySelector("#searchConditon");
+                select.innerHTML = sBuilderOption;
+            }
+            var input = Polymer.dom(e.target.parentElement.parentElement).querySelector("#searchContent");
+            var xtype = option.attributes["xtype"]?option.attributes["xtype"].value:undefined;
+            var url = option.attributes["url"]?option.attributes["url"].value:undefined;
+            this._rebuildContent(input, xtype, url);
+            
+        // }else if(e.target.id == "searchConditon"){
+        //     var options = Polymer.dom(e.target).querySelectorAll("option");
+        //     var option;
+        //     for(var i = 0; i < options.length; i++){
+        //         if(e.target.value == options[i].value){
+        //             option = options[i];
+        //         }
+        //     }
+        //     if(option){
+        //         var input = Polymer.dom(e.target.parentElement.parentElement).querySelector("#searchContent");
+        //         var xtype = $(input).attr("xtype");
+        //         xtype = (xtype=="text"?undefined:xtype);
+        //         var url = $(input).data("url");
+        //         if(option.value.indexOf("m_value_") > -1)
+        //             this._rebuildContent(input, xtype, url, true);
+        //         else
+        //             this._rebuildContent(input, xtype, url);
+        //     }
+        // }
+    },
+    removeRow: function(e){
+        $(e.target).closest(".b-group").remove();
+        event.stopPropagation();
+    },
+    _rebuildContent:function(input, xtype, url, isMutil){
+        var container = input.parentElement;
+        var sText = input.value;
+        var sDisplay = $(input).attr("displayvalue") || sText;
+        var hNewInput = $('<input type="text" name="searchContent" id="searchContent" placeholder="关键字" class="form-control" '+(xtype?"xtype='"+xtype+"'":"")+' '+(url?"data-url='"+url+"'":"")+' '+(isMutil?'data-multi="true"':"")+'>');
+        if(xtype === undefined || xtype == "text" || xtype == "inputItem" || xtype == "dateEditorItem")
+            hNewInput.val(sText);
+        if(xtype == "comboBoxItem"){
+            hNewInput.val(sText);
+            hNewInput.attr("displayvalue", sDisplay);
+        }
+        $(container).empty().append(hNewInput);
+        
+        if(xtype || url){
+            var loader = new DataLoader(window.location.pathname);
+            formControls.init(container, loader.getContextPath());
+        }
+    },
+    clearText: function(){
+        this.$$("#b-search-input").value = "";
+        this.value = [];
+        this.fire("search_click",{"searchValue":[],"type":"clear"});
+    },
+    handleConditonChanged: function(e){
+        var options = Polymer.dom(e.target).querySelectorAll("option");
+        var option;
+        for(var i = 0; i < options.length; i++){
+            if(e.target.value == options[i].value){
+                option = options[i];
+            }
+        }
+        if(option){
+            var input = Polymer.dom(e.target.parentElement.parentElement).querySelector("#searchContent");
+            var xtype = $(input).attr("xtype");
+            xtype = (xtype=="text"?undefined:xtype);
+            var url = $(input).data("url");
+            if(option.value.indexOf("m_value_") > -1)
+                this._rebuildContent(input, xtype, url, true);
+            else
+                this._rebuildContent(input, xtype, url);
+        }
+    }
+});
+
+function getSimpleSelectedIndex(liList){
+    var index = 0;
+    for (var i = 0; i < liList.length; i++) {
+        if($(liList[i]).hasClass("selected"))
+            index = i;
+    };
+    return index;
+}
+
+</script>

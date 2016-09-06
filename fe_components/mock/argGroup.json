@@ -1,0 +1,19 @@
+{
+    "argGroups": [
+        {
+            "groupID": "1",
+            "group": "条件组1",
+            "combine": false
+        },
+        {
+            "groupID": "2",
+            "group": "条件组2",
+            "combine": true
+        },
+        {
+            "groupID": "3",
+            "group": "条件组3",
+            "combine": true 
+        }
+    ]
+}

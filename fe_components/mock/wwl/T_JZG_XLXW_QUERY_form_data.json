@@ -1,0 +1,36 @@
+{
+	"datas": {
+		"T_JZG_XLXW_QUERY": {
+			"totalSize": 1,
+			"pageSize": 1000,
+			"rows": [{
+				"WID": "2970",
+				"JZGBH": "1988009",
+				"RXRQ": "2003-09",
+				"BYRQ": "2007-12",
+				"BYYXXHDW": "南京农业大学资源与环境科学学院植物营养学专业博士毕业并获农学博士学位",
+				"SXZY": "植物营养学",
+				"XZDM": "4",
+				"XLDM": "20",
+				"XLZSH": "20160407",
+				"XWDM": "209",
+				"XWZSH": "201405879",
+				"XWSYRQ": "2016-04",
+				"XWSYGJDM": "156",
+				"XWSYDW": "金智教育",
+				"JYLBDM": "1",
+				"BZ": "高蓓蓓解决啊福建师大",
+				"TBRQ": null,
+				"TBLX": null,
+				"CZRQ": null,
+				"CZZ": null,
+				"CZZXM": null,
+				"XLDM_DISPLAY": "大学本科教育",
+				"XWDM_DISPLAY": "农学博士学位",
+				"XWSYGJDM_DISPLAY": "中华人民共和国",
+				"JYLBDM_DISPLAY": "全日制教育"
+			}]
+		}
+	},
+	"code": "0"
+}

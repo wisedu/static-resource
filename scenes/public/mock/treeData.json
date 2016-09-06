@@ -1,0 +1,41 @@
+[{
+    "text": "基本信息维护",
+    "id": "1",
+    "parentid": "-1",
+    "value": "$2.3"
+},
+{ "id": "2",
+    "parentid": "1",
+    "text": "新增",
+    "value": "$2.3"
+}, {
+    "id": "3",
+    "parentid": "1",
+    "text": "删除",
+    "value": "$2.3"
+}, {
+    "id": "4",
+    "parentid": "1",
+    "text": "编辑",
+    "value": "$2.3"
+}, {
+    "id": "5",
+    "parentid": "1",
+    "text": "上传附件",
+    "value": "$2.3"
+},  {
+    "id": "11",
+    "text": "信息历史查询",
+    "parentid": "-1",
+    "value": "$2.3"
+}, {
+    "id": "7",
+    "parentid": "11",
+    "text": "导出",
+    "value": "$2.3"
+}, {
+    "id": "8",
+    "text": "附件",
+    "parentid": "11",
+    "value": "$2.3"
+}]

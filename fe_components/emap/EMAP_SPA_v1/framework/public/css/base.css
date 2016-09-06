@@ -1,0 +1,80 @@
+.bh-text-key {
+    color: #333;
+    font-size: 14px;
+}
+
+.bh-text-key:after {
+    content: ' ';
+}
+
+.bh-text-key:before {
+    content: ' ';
+}
+
+.tutorial-item{
+    padding: 6px;
+}
+
+.demo-tip{
+	margin-top: 66px;
+    margin-left: 18px;
+    font-size: 14px;
+}
+
+.demo-card{
+	margin-left: 18px;
+	margin-right: 18px;
+	margin-top: 21px;
+	padding-bottom: 11px;
+}
+
+.demo-card-title{
+    font-size: 18px;
+    padding-top: 18px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.demo-card-detail{
+    position: relative;
+    margin-top: 18px;
+    margin-left: 20px;
+}
+
+.demo-card-detail-item{
+	display: inline-block;
+    margin-right: 20px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.demo-public{
+	margin-bottom: 5px;
+	margin-left: 30px;
+}
+
+.demo-public-button{
+	float: none;
+}
+
+.demo-public-tip{
+	display: inline-block;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.demo-none-cont{
+    position: relative;
+    left: 50%;
+    margin-left: -127px;
+    text-align: center;
+    width: 254px;
+    margin-top: 43px;
+
+}
+
+.demo-none{
+	width: 254px;
+    height: 254px;
+	background-image:url('../../../public/images/none.png');
+}

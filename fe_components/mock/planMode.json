@@ -1,0 +1,19 @@
+{
+	"models": [{
+		"name": "FORM_GROUP",
+		"appName": "应用FORM_GROUP",
+		"modelName": "模型FORM_GROUP",
+		"url": "http://res.wisedu.com/fe_components/mock/form_group.json",
+		"controls": [{
+			"name": "WID",
+			"dataType": "String",
+			"caption": "请选择您要参加的招聘计划：",
+			"placeholder": "",
+			"dataSize": 4,
+			"xtype": "radiolist",
+			"readonly": false,
+			"url": "./mock/select.json",
+			"required": false
+		}]
+	}]
+}

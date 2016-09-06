@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试三级菜单</title>
+    <link rel="stylesheet" href="http://res.wisedu.com/fe_components/iconfont/iconfont.css">
+    <link href="bh_aside_nav.css" rel="stylesheet" />
+</head>
+<body>
+<div class="bh-headerBar-asideMenu" bh-header-role="bhAsideNavIcon"><i class="iconfont icon-menu"></i></div>
+
+
+<script src='http://res.wisedu.com/fe_components/jquery-1.11.3.js'></script>
+<script src="http://res.wisedu.com/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="bh_aside_nav.js"></script>
+<script type="text/javascript">
+
+
+    $(function () {
+        //左侧边栏列表初始化
+        asideNavInit();
+
+        $("body").on("click", "[bh-header-role=bhAsideNavIcon]", function(){
+            //显示Nav组件
+            $.bhAsideNav.show();
+        });
+
+
+        //通过这种方式,加点击事件
+        $("[bh-aside-nav-role=bhAsideNav]").bind("navOnClick",function (event,options) {
+            console.log(options);
+        });
+    });
+
+    /**
+     * 构造Nav
+     */
+    function asideNavInit(){
+        $.bhAsideNav.init({
+            title: "应用管理平台",
+            data: [
+                [{
+                    id:11,
+                    text: "首页",
+                    icon: "1.png"
+                }],
+                [{
+                    id:21,
+                    text: "应用管理",
+                    icon: "1.png",
+                    children: [
+                        {text: "收到的消息",id:211},
+                        {text: "发出的消息",id:212},
+                        {text: "收藏的消息",id:213}
+                    ]
+                },
+                    {
+                        id:22,
+                        text: "移动管理",
+                        icon: "1.png",
+                        children: [
+                            {id:221,text: "广告位管理",icon: "1.png",
+                                children:[
+                                    {
+                                        id:2211,text: "广告位管理子项1",icon: "1.png"
+                                    },
+                                    {
+                                        id:2212,text: "广告位管理子项2",icon: "1.png"
+                                    },
+                                    {
+                                        id:2213,text: "广告位管理子项3",icon: "1.png"
+                                    }
+                                ]
+                            },
+                            {
+                                id:222,
+                                text: "海报位管理",
+                                icon: "1.png",
+                                children:[
+                                    {
+                                        id:2221,text: "海报位管理子项1",icon: "1.png"
+                                    },
+                                    {
+                                        id:2222,text: "海报位管理子项2",icon: "1.png"
+                                    },
+                                    {
+                                        id:2223,text: "海报位管理子项3",icon: "1.png"
+                                    }
+                                ]
+                            },
+                            {id:223,text: "首页内容管理",icon: "1.png"},
+                            {id:224,text: "客户端版本管理",icon: "1.png"},
+                            {id:225,text: "关于软件",icon: "1.png"}
+                        ]
+                    },
+                    {
+                        id:23,
+                        text: "系统管理",
+                        icon: "1.png",
+                        children: [
+                            {id:231,text: "收到的消息"},
+                            {id:232,text: "发出的消息"},
+                            {id:233,text: "收藏的消息"}
+                        ]
+                    }],
+                [{
+                    id:31,
+                    text: "业务域管理",
+                    icon: "1.png"
+                },
+                    {
+                        id:32,
+                        text: "用户组管理",
+                        icon: "1.png"
+                    }],
+                [{
+                    id:41,
+                    text: "意见反馈管理",
+                    icon: "1.png"
+                },
+                    {
+                        id:42,
+                        text: "评价管理",
+                        icon: "1.png"
+                    },
+                    {
+                        id:43,
+                        text: "应用分析",
+                        icon: "1.png"
+                    }]
+            ]
+        })
+    }
+</script>
+</body>
+</html>

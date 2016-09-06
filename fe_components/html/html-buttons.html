@@ -1,0 +1,68 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="options-behaviors.html">
+
+<dom-module id="html-buttons">
+  <style>
+    /* span{
+    	padding-right: 20px;
+  	} */
+  </style>
+  <template>
+    <div class="bh-btn-group">
+      <template is="dom-repeat" items="{{_optionsFormatted}}">
+          <template is="dom-if" if="{{!item.checked}}">
+            <button class="bh-btn bh-btn-primary bh-btn-text waves-effect" type="button" value="{{item.val}}" on-click="handleClick">{{item.out}}</button>
+          </template>
+          <template is="dom-if" if="{{item.checked}}">
+            <button class="bh-btn bh-btn-primary bh-btn-text waves-effect bh-active" type="button" value="{{item.val}}" on-click="handleClick">{{item.out}}</button>
+          </template>
+      </template>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "html-buttons",
+    behaviors: [OptionsBehavior],
+    // listeners: {
+    //     'button.tap': 'handleClick'
+    // },
+    properties: {
+    	separator:{type:String},//字符串中分隔每项的字符
+    	assign:{type:String},//将单选框标签赋值到数组，而不是输出
+    	labels:{type:Boolean},//在输出中增加<label>标签
+    	label_ids:{type:Boolean},//给<label> 和 <input>设置ID属性
+    	escape:{type:Boolean},//将输出中的/转换(值总是会被转换)
+        readonly:{type:Boolean,observer:"_readonlyChanged"}
+    },
+    ready: function() {
+    	//
+    },
+    attached: function(){
+    	this.formatOption();
+    },
+    handleClick: function(e){
+        var activeBtn = this.querySelector("button.bh-active");
+        if(activeBtn !== null)
+            activeBtn.classList.remove("bh-active");
+        
+    	var selectedBtn = e.target;
+        selectedBtn.classList.add("bh-active");
+        
+        this.fire("selected",{"value":selectedBtn.value});
+    },
+    _readonlyChanged: function(){
+      var items = this.querySelectorAll("[type=radio]");
+      for (var i = 0; i < items.length; i++){
+        var item = items[i];
+        if(this.readonly)
+          item.classList.add("bh-disabled");
+        else{
+          item.classList.remove("bh-disabled");
+        }
+      }
+    }
+});
+
+</script>

@@ -1,0 +1,30 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="html-form">
+  <template>
+    <content></content>
+  </template>
+</dom-module>
+
+<script>
+Polymer({
+    is: "html-form",
+    properties: {
+        items:{type:Array},
+        values:{type:Object,observer:"_valuesChanged"},
+        cols:{type:Number}
+    },
+    ready: function() {
+      // this.$$(".form").style = "{display:block}";
+      var items = Polymer.dom(this.$$("content")).getDistributedNodes();
+      if(items.length > 0)
+        items[0].cols = this.cols;
+    },
+    attached: function(){
+
+    },
+    _valuesChanged: function(){
+      this.fire("valuesChanged");
+    }
+});
+</script>

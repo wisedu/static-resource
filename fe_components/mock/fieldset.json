@@ -1,0 +1,73 @@
+{
+    "models": [
+        {
+            "name": "FORM_X",
+            "appName": "应用FORM_X",
+            "modelName": "模型FORM_X",
+            "url": "http://res.wisedu.com/fe_components/mock/form_x.json",
+            "controls": [
+                {
+                    "name": "WID",
+                    "dataType": "String",
+                    "caption": "WID",
+                    "placeholder": "这里是提示性文字",
+                    "dataSize": 4,
+                    "xtype": "multi-select",
+                    "url": "http://res.wisedu.com/fe_components/mock/radiolist.json",
+                    "required": true
+                },
+                {
+                    "name": "XQAH",
+                    "dataType": "String",
+                    "caption": "兴趣爱好",
+                    "xtype": "select",
+                    "dataSize": 1,
+                    "url": "http://res.wisedu.com/fe_components/mock/radiolist.json",
+                    "col": 2,
+                    "required": true
+                },
+                {
+                    "name": "XSBH",
+                    "dataType": "String",
+                    "caption": "学生编号",
+                    "dataSize": 40,
+                    "required": true
+                },
+                {
+                    "name": "XM",
+                    "dataType": "String",
+                    "caption": "姓名",
+                    "dataSize": 60,
+                    "placeholder": "这里是提示性文字",
+                    "defaultValue": "aaaa",
+                    "col": 2
+                },
+                {
+                    "name": "CSRQ",
+                    "dataType": "String",
+                    "caption": "出生日期",
+                    "dataSize": 30,
+                    "col": 2,
+                    "required": true
+                },
+                {
+                    "name": "GZDW",
+                    "dataType": "String",
+                    "caption": "工作单位",
+                    "dataSize": 200,
+                    "required": true
+                },
+                {
+                    "name": "LXFS",
+                    "dataType": "String",
+                    "caption": "联系方式",
+                    "dataSize": 200,
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "routes": {},
+    "code": "0",
+    "datas": {}
+}

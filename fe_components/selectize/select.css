@@ -1,0 +1,113 @@
+
+div.selectize-input.items.full.has-options.has-items {
+    /*height: auto;*/
+    min-height: 28px;
+    padding-left: 0px;
+    position: relative;
+    padding: 1px 0px;
+    font-size: 12px;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 20px;
+}
+
+div[data-multi=true] div.selectize-input.items.full.has-options.has-items{
+    height: auto;
+}
+
+div.selectize-input.items.full.has-options.has-items input{
+    top:-6px;
+}
+.selectize-input.items.has-options.not-full input{
+    top:3px;
+}
+
+.selectize-input {
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;
+    padding: 2px 28px 2px 4px;
+    min-height: 14px;
+    height:28px;
+    padding: 1px 5px;
+}
+
+.selectize-input.focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: none ;
+    box-shadow: none ;
+}
+
+.multi .selectize-input{height: auto;min-height: 28px}
+.multi .item{line-height: 16px;}
+.multi .selectize-input{line-height: 24px;}
+.selectize-input .item{max-width: 100%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis ;}
+
+.selectize-dropdown.form-control{
+    border-radius: 2.5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.form-control.selectize-control{
+    min-height: 14px;
+    height:28px;
+    position: relative;
+}
+
+.has-warning .selectize-input{
+    border-color: #FEC006;
+}
+
+.selectize-input.dropdown-active {
+  border-radius: 2px;
+}
+
+.selectize-control.single .selectize-input.dropdown-active:after,
+.selectize-control.single .selectize-input:after{
+	right: 9px;
+	border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: #767676 transparent transparent transparent;
+}
+
+.selectize-control.single .selectize-input.dropdown-active:after{
+	margin-top: -3px;
+}
+
+.selectize-input:after { 
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -3px;
+    width: 0;
+    height: 0;
+
+}
+.selectize-control {
+    height: 26px;
+}
+
+.selectize-control .selectize-input:after { 
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 9px;
+    border-style: solid;
+    border-width: 6px 5px 0 5px;
+    border-color: #767676 transparent transparent transparent;
+}
+.selectize-input.items.full.has-options.has-items:focus {
+    border: 1px solid #66afe9 ;
+    outline: none;
+    box-shadow: none ;
+    -webkit-transition: none ;
+}
+.selectize-control.multi .selectize-input.has-items{
+    padding: 0 4px;
+}
+.selectize-control.form-control.multi{
+    height: auto;
+    min-height: 28px;
+}

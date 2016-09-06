@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/**
+设置字体和行高
+*/
+/**
+设置padding或margin值
+*/
+/**
+设置水平方向的padding或margin值
+*/
+/**
+设置垂直方向的padding或margin值
+*/
+/**
+设置padding-top或margin-top值
+*/
+/**
+设置padding-right或margin-right值
+*/
+/**
+设置padding-bottom或margin-bottom值
+*/
+/**
+设置padding-left或margin-left值
+*/
+/**
+设置padding或margin各种值
+*/
+/**
+设置字体颜色
+*/
+/**
+设置背景颜色
+*/
+/**
+设置边框颜色
+*/
+/**
+设置字体,背景,边框颜色
+*/
+.bh-s-list-item-img {
+  width: 3.6rem;
+  height: 3.6rem; }
+
+/**
+带图片列表样式 start
+*/
+.bh-s-list-item-img-right {
+  width: 7rem;
+  height: 5.4rem; }
+
+.bh-s-list-item-title {
+  font-size: 1.5rem; }
+
+.bh-s-list-item-container {
+  position: relative;
+  width: 100%;
+  padding-right: 1.2rem; }
+
+.bh-s-list-item-left {
+  float: left;
+  width: calc(100% - 7rem); }
+
+.bh-s-list-item-right {
+  float: right; }
+
+/**
+带图片列表样式 end
+*/

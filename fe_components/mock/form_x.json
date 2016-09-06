@@ -1,0 +1,26 @@
+{
+    "code": "0",
+    "datas": {
+        "FORM_X": {
+            "totalSize": 1,
+            "pageSize": 1000,
+            "rows": [
+                {
+                    "WID" : "2,1",
+                    "WID_DISPLAY": "女,男",
+                    "XSBH": "000010",
+                    "XSBH_DISPLAY": "",
+                    "XM": 0,
+                    "SFQY": "1",
+                    "SFQY_DISPLAY": "是",
+                    "GZDW": "森林保护局",
+                    "SHHD": "0,2",
+                    "SHHD_DISPLAY": "考察干部,参加社区活动",
+                    "LXFS": "18999999999",
+                    "XSZP": "./public/images/demo/user2.png",
+                    "ZSFJ": "xxxxx.txt"
+                }
+            ]
+        }
+    }
+}

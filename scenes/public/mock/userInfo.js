@@ -1,0 +1,69 @@
+var mock_userInfo_json = {
+    "recordsFiltered": 640,
+    "data": [
+        {
+            "userId": "T2014067",
+            "cname": "qwqw",
+            "userSex": null,
+            "userDept": "化工学院",
+            "userClass": null,
+            "userType": "Student"
+        },
+        {
+            "userId": "T2013106",
+            "cname": "1",
+            "userSex": null,
+            "userDept": "经济与管理学院",
+            "userType": "Student"
+        },
+        {
+            "userId": "T2011348",
+            "cname": "91984",
+            "userSex": null,
+            "userDept": "经济与管理学院",
+            "userClass": null,
+            "userType": "Student"
+        },
+        {
+            "userId": "T2013043",
+            "cname": "Aamr Alalewi",
+            "userSex": null,
+            "userDept": "经济与管理学院",
+            "userClass": null,
+            "userType": "Student"
+        },
+        {
+            "userId": "1300249",
+            "cname": "Alexander Tikhonravov",
+            "userSex": null,
+            "userDept": "经济与管理学院",
+            "userClass": null,
+            "userType": "Student"
+        },
+        {
+            "userId": "1400073",
+            "cname": "Alvin Tong",
+            "userSex": null,
+            "userDept": "经济与管理学院",
+            "userClass": null,
+            "userType": "Student"
+        },
+        {
+            "userId": "T2012126",
+            "cname": "Andrew Hagan",
+            "userSex": null,
+            "userDept": "经济与管理学院",
+            "userClass": null,
+            "userType": "Student"
+        },
+        {
+            "userId": "03310321",
+            "cname": "BASTIAN",
+            "userSex": null,
+            "userDept": "经济与管理学院",
+            "userClass": null,
+            "userType": "Student"
+        }
+    ],
+    "recordsTotal": 640
+};

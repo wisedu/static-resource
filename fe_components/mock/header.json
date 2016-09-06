@@ -1,0 +1,20 @@
+{
+    "title": "教职工离退休",
+    "nav": [
+        {"title": "报到确认", "href": "#/confirmReg"},
+        {"title": "离退休信息维护", "href": "#/infoMaintenance"}, 
+        {"title": "互动记录", "active": true, "href": "#/visitRecord"},
+        {"title": "生日提醒", "href": "#/birthdayRemind"}
+    ],
+    "userInfo":{
+        "image": "http://res.wisedu.com/scenes/public/images/demo/user1.png",
+        "info": [
+            "01118888",
+            "张晓明  男",
+            "南京理工大学  信息化办公室",
+            "zhangxm@wisedu.com",
+            "18888888888"
+        ],
+        "logoutHref": "javascript:void(0);"
+    }
+}

@@ -1,0 +1,392 @@
+.dropdown-size{
+    max-height: 250px;
+    max-width: 400px;
+    min-width: 200px;
+    overflow-y: scroll;
+    left:8px;
+}
+.fm-compact.edit input[xtype=tree].form-control, .fm-compact.edit input[xtype=tree].bh-form-control,
+.fm-compact.edit input[xtype=date-local].form-control, .fm-compact.edit input[xtype=date-local].bh-form-control,
+.fm-compact.edit input[xtype=date-ym].form-control, .fm-compact.edit input[xtype=date-ym].bh-form-control,
+.fm-compact.edit input[xtype=selecttable].form-control, .fm-compact.edit input[xtype=selecttable].bh-form-control, 
+.fm-compact.edit input[xtype=select].form-control, .fm-compact.edit input[xtype=select].bh-form-control{
+    padding-right: 24px;
+}
+.fm-compact .dropdown-menu{
+    top:28px;
+}
+h4.form{
+    border-left: 3px solid #3E50B4;
+    padding-left: 5px;
+    line-height: 20px;
+    color: #3E50B4;
+    margin: 8px 0;
+}
+label.validate:before{
+	content:"* ";
+	color:#f44336;
+}
+.fm-compact{
+  display: block;
+  clear: both;
+}
+.fm-compact .dropdown-size{
+    left:0;
+}
+.container hr{
+	margin: 24px 0;
+	border: 0;
+	border-bottom: 1px solid #efefef;
+}
+.fm-compact.read {
+    border-bottom: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    /*overflow: hidden;*/
+}
+
+.fm-compact .row{
+	margin: 0;
+}
+
+.fm-compact.edit .form-group {
+    margin: 2px 0;
+}
+
+.fm-compact.read .col-md-12.groupName:not(:first-child) {
+    border-top: #ddd solid 1px;
+}
+
+.fm-compact.read .form-group {
+    border-top: #ddd solid 1px;
+    border-left: #ddd solid 1px;
+    margin: 0;
+    display: flex;
+}
+
+.fm-compact label, .fm-compact span, .fm-compact .textarea{
+	text-align: left;
+	white-space: nowrap;
+    overflow: hidden ;
+    text-overflow: ellipsis ;
+}
+
+.fm-compact.read label.control-label {
+    border-right: 1px solid #ddd;
+    line-height: 32px;
+    padding: 0 10px;
+    margin-right: 0;
+    background-color: #efefef;
+}
+.fm-compact.read span.form-control {
+	border:none;
+	padding: 0;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 5px;
+}
+.fm-compact.read .textarea {
+	height:auto;
+    border:none;
+}
+
+
+.fm-compact.no_border .form-group {
+    margin: 0;
+    display: flex;
+}
+.fm-compact.no_border label.control-label {
+    line-height: 32px;
+    padding: 0 10px;
+    margin-right: 0;
+    text-align: right;
+    color:#666;
+}
+.fm-compact.no_border label.control-label:after {
+    content:":";
+}
+
+.fm-compact.no_border span.form-control {
+	border:none;
+	padding: 0;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 5px;
+}
+.fm-compact.no_border .textarea, .fm-compact.edit .textarea {
+	height:auto;
+    white-space: normal;
+    overflow: auto;
+    text-overflow: clip ;
+}
+.fm-compact.no_border .textarea pre, .fm-compact.edit .textarea pre {
+    margin: 4px 0;
+    white-space: pre-wrap;
+    font-family: "Microsoft YaHei", "Arial-normal", "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.fm-compact.no_border .textarea{
+    border:none;
+}
+
+.fm-compact.edit input.form-control, .fm-compact.edit textarea.form-control{
+	line-height: 28px;
+	width: 100%;
+    text-align: left;
+    padding: 1px 2px 1px 5px;
+    border: 1px solid #DDDDDD ;
+    border-radius: 2.5px;
+}
+.fm-compact.edit input.form-control{
+	height: 28px;
+}
+.fm-compact.edit input.form-control:focus {
+    border: 1px solid #66afe9 ;
+    outline: none;
+    box-shadow: none ;
+    -webkit-transition: none ;
+}
+
+.fm-compact.edit input.form-control[disabled], 
+.fm-compact.edit input.form-control[readonly],
+.fm-compact.edit textarea.form-control[disabled], 
+.fm-compact.edit textarea.form-control[readonly]{
+    background-color: transparent;
+}
+
+.fm-compact.edit input.form-control[disabled]:focus,
+.fm-compact.edit input.form-control[readonly]:focus,
+.fm-compact.edit textarea.form-control[disabled]:focus,
+.fm-compact.edit textarea.form-control[readonly]:focus{
+    background-color: transparent;
+}
+
+.fm-compact.edit label.control-label {
+    line-height: 28px;
+    text-align: right;
+    font-weight: 700;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.fm-compact.edit label.control-label:after{
+	content:":";
+}
+
+.fm-compact label.control-label.long {
+	width: 11.11111111%;
+	float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.fm-compact .control-entry.long, .fm-compact textarea.form-control.long, .fm-compact span.form-control.long, .fm-compact input.form-control.long, .fm-compact form.long {
+	width: 88.88888889%;
+	float: left;
+}
+
+input[type="wis-date-ym"]{
+	content:":";
+}
+
+.i-calender{
+    position: absolute;
+    top: 8px;
+    right: 17px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.fm-compact .i-calender{
+	right: 8px;
+}
+.i-calender:before {
+    content: "\e109";
+}
+.tree:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 17px;
+    border-style: solid;
+    border-width: 6px 5px 0 5px;
+    border-color: #767676 transparent transparent transparent;
+}
+.fm-compact .tree:after{
+    top: 10px;
+    right: 9px;
+}
+.fm-compact.edit .formErrorContent{
+  color: #f44336;
+  background-color: #ffffff;
+  color:white;
+}
+
+.validates .fm-compact.edit div.selectize-control.form-control,
+.validates .fm-compact.edit input.form-control,.validates .fm-compact.edit textarea.form-control,
+.validates .fm-compact.edit input.bh-form-control,.validates .fm-compact.edit textarea.bh-form-control,
+.validates .fm-compact.edit input.form-control,.validates .fm-compact.edit textarea.form-control,
+.validates .fm-compact.edit input.bh-form-control, .validates .fm-compact.edit textarea.bh-form-control,
+.validates.fm-compact.edit div.selectize-control.form-control,
+.validates.fm-compact.edit input.form-control,.validates.fm-compact.edit textarea.form-control,
+.validates.fm-compact.edit input.bh-form-control,.validates.fm-compact.edit textarea.bh-form-control,
+.validates.fm-compact.edit input.form-control,.validates.fm-compact.edit textarea.form-control,
+.validates.fm-compact.edit input.bh-form-control, .validates.fm-compact.edit textarea.bh-form-control{
+    width:calc(100% - 20px);
+}
+.validates .i-calender{
+    right: 30px;
+}
+.validates .tree:after{
+    right: 30px;
+}
+.validFlag{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    font-size: 20px;
+}
+.bh-form-group .validFlag{
+    right: 2px;
+}
+.has-warning .validFlag{
+    display: block;
+    color: #FEC006;
+}
+.has-warning .form-control{
+    border-color: #FEC006 !important;
+}
+.formError {
+	position: absolute;
+	top: 300px;
+	right: 0;
+    z-index: 10;
+	display: block;
+	cursor: pointer;
+	text-align: left;
+}
+.formError .formErrorContent {
+	width: 100%;
+	/*background: #F44336;*/
+	position:relative;
+	color: #fff;
+	min-width: 120px;
+	font-size: 11px;
+    padding: 4px;
+}
+.has-warning .formError .formErrorContent {
+    background: #FFA000;
+}
+.formError .formErrorArrow {
+	width: 15px;
+	margin: -2px 0 0 13px;
+	position: absolute;
+    right: 3px;
+}
+
+.formError .formErrorArrowBottom {
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	-o-box-shadow: none;
+	margin: 0px 0 0 12px;
+	top:2px;
+}
+
+.formError .formErrorArrow div {
+	font-size: 0px;
+	height: 1px;
+	/*background: #F44336;*/
+	margin: 0 auto;
+	line-height: 0;
+	font-size: 0;
+	display: block;
+}
+.has-warning .formError .formErrorArrow div {
+    background: #FFA000;
+}
+.formError .formErrorArrowBottom div {
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	-o-box-shadow: none;
+}
+
+.formError .formErrorArrow .line10 {
+	width: 15px;
+	border: none;
+}
+
+.formError .formErrorArrow .line9 {
+	width: 13px;
+	border: none;
+}
+
+.formError .formErrorArrow .line8 {
+	width: 11px;
+}
+
+.formError .formErrorArrow .line7 {
+	width: 9px;
+}
+
+.formError .formErrorArrow .line6 {
+	width: 7px;
+}
+
+.formError .formErrorArrow .line5 {
+	width: 5px;
+}
+
+.formError .formErrorArrow .line4 {
+	width: 3px;
+}
+
+.formError .formErrorArrow .line3 {
+	width: 1px;
+	border-left: 2px solid #ddd;
+	border-right: 2px solid #ddd;
+	border-bottom: 0 solid #ddd;
+}
+
+.formError .formErrorArrow .line2 {
+	width: 3px;
+	border: none;
+	background: #ddd;
+}
+
+.formError .formErrorArrow .line1 {
+	width: 1px;
+	border: none;
+	background: #ddd;
+}
+.advanceSearch .b-search-add-options{
+    font-size: 12px;
+    float: left;
+}
+.advanceSearch .searchBtn{
+    float: right;
+}
+.advanceSearch .b-option-minus:hover{
+    color:red;
+}
+
+/*0105 zhuhui 兼容group表单的多余边框*/
+/*需要在页面内添加以下样式*/
+/*.fm-compact.read {
+    border-bottom: none;
+    overflow: visible;
+}*/
+.col-md-12.groupName {
+    width : -webkit-calc(100% + 2px);
+    width : calc(100% + 2px);
+    background-color: #fff;
+}

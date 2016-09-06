@@ -1,0 +1,37 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="options-behaviors.html">
+
+<dom-module id="html-options">
+  <!-- <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
+  <template>
+	<select name="{{name}}">
+		<option value="">请选择</option>
+		<template is="dom-repeat" items="[[_optionsFormatted]]">
+	        <option value="{{item.val}}" selected="{{item.checked}}">{{item.out}}</option>
+	    </template>
+	</select>
+  </template>
+</dom-module>
+
+<script>
+Polymer({
+    is: "html-options",
+    properties: {
+    },
+    behaviors: [OptionsBehavior],
+    listeners: {
+        'tap': 'handleClick'
+    },
+    ready: function() {
+    	//
+    	
+    },
+    attached: function(){
+    	this.formatOption();
+    },
+    handleClick: function(){
+    	var items = this.querySelector(":checked");
+    	this.selected = items.value;
+    }
+});
+</script>

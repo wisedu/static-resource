@@ -1,0 +1,50 @@
+<script>
+OptionsBehavior = {
+    properties: {
+    	name:{type:String},
+    	values:{type:Array},
+    	output:{type:Array},
+    	selected:{type:String,value:"",notify: true, observer:"_selectedChanged"},
+    	options:{type:String},
+    	_optionsFormatted:{type:Array}
+    },
+    formatOption: function(){
+    	if(this.options){
+    		var opts = [];
+    		var val = JSON.parse(this.options);
+    		for (var i = 0; i < val.length; i++) {
+    			if(val[i] instanceof Array){
+    				var opt = {val: val[i][0],out:val[i][1]};
+    				this.attachChecked(opt, this.selected);
+    				opts.push(opt);
+    			}else if(typeof(val[i]) == "string"){
+    				var opt = {val: val[i],out:val[i]};
+    				this.attachChecked(opt, this.selected);
+    				opts.push(opt);
+    			}else{
+    				this.attachChecked(val[i], this.selected);
+    				opts.push(val[i]);
+    			}
+    		}
+    		this._optionsFormatted = opts;
+    	}else if(this.values){
+    		var opts = [];
+    		for (var i = 0; i < this.values.length; i++) {
+    			var opt = {val: this.values[i],out: this.values[i]};
+    			if(this.output)
+    				opt.out = this.output[i];
+    			this.attachChecked(opt, this.selected);
+				opts.push(opt);
+    		}
+    		this._optionsFormatted = opts;
+    	}
+    },
+    attachChecked :function(opt, selected){
+    	if( ("," + selected + ",").indexOf("," + opt.val + ",") > -1)
+    		opt.checked = true;
+    },
+    _selectedChanged:function(){
+        this.formatOption();
+    }
+};
+</script>

@@ -1,0 +1,78 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<script src="http://res.wisedu.com/bower_components/??webcomponentsjs/webcomponents-lite.min.js,jquery/dist/jquery.js,underscore/underscore.js,backbone/backbone.js,system.js/dist/system.js"></script>
+	<link rel="import" href="http://res.wisedu.com/fe_components/html/html-radios.html">
+    <link rel="import" href="http://res.wisedu.com/fe_components/html/html-buttons.html">
+	<link rel="import" href="http://res.wisedu.com/fe_components/html/html-checkboxes.html">
+	<link rel="import" href="http://res.wisedu.com/fe_components/html/html-form.html">
+	<link rel="import" href="http://res.wisedu.com/fe_components/html/html-col.html">
+
+	<link rel="stylesheet" type="text/css" href="http://res.wisedu.com/fe_components/bh.css">
+	<link rel="stylesheet" type="text/css" href="http://res.wisedu.com/bower_components/selectize/dist/css/selectize.bootstrap3.css">
+	<link rel="stylesheet" type="text/css" href="http://res.wisedu.com/fe_components/jstree/style.min.css">
+	<link rel="stylesheet" type="text/css" href="http://res.wisedu.com/fe_components/??base.css,selectize/select.css,form.css">
+	<script src="fe_core.js"></script>
+	<script src="http://res.wisedu.com/bower_components/??selectize/dist/js/standalone/selectize.min.js,jstree/dist/jstree.min.js,jQuery-Validation-Engine/js/jquery.validationEngine.js,jQuery-Validation-Engine/js/languages/jquery.validationEngine-zh_CN.js"></script>
+	<script src="http://res.wisedu.com/bower_components/My97DatePicker/WdatePicker.js"></script>
+</head>
+
+<body>
+	<form id="fm">1
+		<html-form cols=2 class="fm-compact edit">
+			<html-col label="文本" field="text">
+				<input type="text" name="text" value="">
+			</html-col>
+			<html-col label="下拉" field="drop">
+				<input type="text" name="drop" xtype="select" data-url="/datas/select.json" value="">
+			</html-col>
+			<html-col label="单选" field="radio">
+				<input type="text" name="radio" xtype="radiolist" data-url="/datas/option.json" col=2 value="">
+			</html-col>
+			<html-col label="多选" field="check">
+				<input type="text" name="check" xtype="checkboxlist" data-url="/datas/option.json" col=3 value="">
+			</html-col>
+			<html-col label="下拉树" field="tree">
+				<input type="text" name="tree" xtype="tree" class="form-control" data-url="/datas/tree.json" col=1 value="">
+			</html-col>
+			<html-col label="日期" field="local">
+				<input type="text" name="local" xtype="date-local" value="">
+			</html-col>
+			<html-col label="年月" field="ym">
+				<input type="text" name="ym" xtype="date-ym" value="">
+			</html-col>
+			<html-col label="大文本" col=2 field="area">
+				<textarea name="area"></textarea>
+			</html-col>
+		</html-form>
+	</form>
+	<button onclick="toggle()">隐藏树</button>
+	<wis-search id="search"></wis-search>
+    <html-buttons options='[["1","非常满意"],["2","较满意"],["3","一般"],["4","不满意"],["5","非常不满意"]]' selected="5"></html-buttons>
+
+	<script>
+		$(function(){
+				var row = {
+					"text":"abc",
+					"drop":"030",
+					"radio":"015",
+					"check":"015,292",
+					"tree":"000010",
+					"local":"2015-09-01",
+					"ym":"2015-02",
+					"area":"balbalbal"
+				};
+				// Utils.resetForm($("#fm"), row);
+				
+				// $("#search").attr("complex-items", cis);
+			});
+			function toggle(){
+				var ss = $("#okok").html();
+				Utils.toggleFields("tree");
+				Utils.toggleFields(["ym", "local"]);
+			}
+	</script>
+</body>
+
+</html>

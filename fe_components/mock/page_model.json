@@ -1,0 +1,308 @@
+{
+    "models": [
+        {
+            "name": "TABLE",
+            "appName": "应用1",
+            "modelName": "模型1",
+            "url": "http://res.wisedu.com/fe_components/mock/table.json",
+            "controls": [
+                {
+                    "name": "WID",
+                    "dataType": "String",
+                    "caption": "WID",
+                    "dataSize": 40,
+                    "hidden": false,
+                    "required": true,
+                    "xtype":"textarea"
+                },
+                {
+                    "name": "XSBH",
+                    "dataType": "String",
+                    "caption": "学生编号",
+                    "dataSize": 40,
+                    "required": true
+                },
+                {
+                    "name": "XH",
+                    "dataType": "String",
+                    "caption": "学号",
+                    "dataSize": 20,
+                    "required": true
+                },
+                {
+                    "name": "XM",
+                    "dataType": "String",
+                    "caption": "姓名",
+                    "dataSize": 90,
+                    "required": true
+                },
+                {
+                    "name": "XBDM",
+                    "dataType": "String",
+                    "caption": "性别",
+                    "xtype": "select",
+                    "dataSize": 1,
+                    "url": "http://res.wisedu.com/fe_components/mock/select.json",
+                    "required": true
+                },
+                {
+                    "name": "CSRQ",
+                    "dataType": "String",
+                    "caption": "出生日期",
+                    "xtype": "date-local",
+                    "dataSize": 10,
+                    "required": true
+                },
+                {
+                    "name": "SFZJH",
+                    "dataType": "String",
+                    "caption": "身份证号",
+                    "dataSize": 20,
+                    "required": true
+                },
+                {
+                    "name": "XZ",
+                    "dataType": "int",
+                    "caption": "学制",
+                    "dataSize": 6,
+                    "required": true
+                },
+                {
+                    "name": "XSZP",
+                    "dataType": "String",
+                    "caption": "学生照片",
+                    "dataSize": 40,
+                    "hidden": true,
+                    "required": true
+                },
+                {
+                    "name": "ZSFJ",
+                    "dataType": "String",
+                    "caption": "证书附件",
+                    "dataSize": 40,
+                    "hidden": true,
+                    "required": true
+                }
+            ]
+        },
+        {
+            "name": "FORM_1",
+            "appName": "应用FORM_1",
+            "modelName": "模型FORM_1",
+            "url": "http://res.wisedu.com/fe_components/mock/form_1.json",
+            "controls": [
+                {
+                    "name": "CSRQ",
+                    "dataType": "String",
+                    "caption": "出生日期",
+                    "xtype": "date-local",
+                    "dataSize": 10
+                }
+            ]
+        },
+        {
+            "name": "FORM_X",
+            "appName": "应用FORM_X",
+            "modelName": "模型FORM_X",
+            "url": "http://res.wisedu.com/fe_components/mock/form_x.json",
+            "controls": [
+                {
+                    "name": "WID",
+                    "dataType": "String",
+                    "caption": "WID",
+                    "dataSize": 40,
+                    "required": true
+                },
+                {
+                    "name": "XSBH",
+                    "dataType": "String",
+                    "caption": "学生编号",
+                    "dataSize": 40,
+                    "placeholder": "这里是提示性文字",
+                    "readonly": true,
+                    "required": true
+                },
+                {
+                    "name": "XM",
+                    "dataType": "String",
+                    "caption": "姓名",
+                    "dataSize": 30,
+                    "placeholder": "这里是提示性文字",
+                    "required": true
+                },
+                {
+                    "name": "XBDM",
+                    "dataType": "String",
+                    "caption": "性别",
+                    "xtype": "multi-select",
+                    "dataSize": 1,
+                    "url": "http://res.wisedu.com/fe_components/mock/select.json",
+                    "required": true
+                },
+                {
+                    "name": "SFQY",
+                    "dataType": "String",
+                    "caption": "是否启用",
+                    "readonly": true,
+                    "xtype": "radiolist",
+                    "dataSize": 1,
+                    "url": "http://res.wisedu.com/fe_components/mock/radiolist_isornot.json"
+                },
+                {
+                    "name": "ZZRQ",
+                    "dataType": "String",
+                    "caption": "终止日期",
+                    "dataSize": 30,
+                    "form.hidden": true,
+                    "xtype": "date-local"
+                },
+                {
+                    "name": "CSRQ",
+                    "dataType": "String",
+                    "caption": "出生日期",
+                    "dataSize": 30,
+                    "required": true,
+                    "xtype": "date-local"
+                },
+                {
+                    "name": "GZDW",
+                    "dataType": "String",
+                    "caption": "工作单位",
+                    "dataSize": 200
+                },
+                {
+                    "name": "SHHD",
+                    "dataType": "String",
+                    "caption": "社会活动",
+                    "dataSize": 200,
+                    "col": 3,
+                    "xtype": "checkboxlist",
+                    "url": "http://res.wisedu.com/fe_components/mock/checkboxlist.json"
+                },
+                {
+                    "name": "LXFS",
+                    "dataType": "String",
+                    "caption": "联系方式",
+                    "dataSize": 200,
+                    "required": true
+                },
+                {
+                    "name": "XSZP",
+                    "dataType": "String",
+                    "caption": "学生照片",
+                    "dataSize": 40
+                },
+                {
+                    "name": "ZSFJ",
+                    "dataType": "String",
+                    "caption": "证书附件",
+                    "dataSize": 40
+                }
+            ]
+        },
+        {
+            "name": "FORM_GROUP",
+            "appName": "应用FORM_GROUP",
+            "modelName": "模型FORM_GROUP",
+            "url": "http://res.wisedu.com/fe_components/mock/form_group.json",
+            "controls": [
+                {
+                    "name": "WID",
+                    "dataType": "String",
+                    "caption": "WID",
+                    "groupName": "分组零",
+                    "placeholder": "这里是提示性文字",
+                    "dataSize": 4,
+                    "xtype": "multi-select",
+                    "url": "http://res.wisedu.com/fe_components/mock/radiolist.json",
+                    "required": true
+                },
+                {
+                    "name": "XQAH",
+                    "dataType": "String",
+                    "caption": "兴趣爱好",
+                    "xtype": "select",
+                    "dataSize": 1,
+                    "url": "http://res.wisedu.com/fe_components/mock/radiolist.json",
+                    "groupName": "分组零",
+                    "col": 2,
+                    "required": true
+                },
+                {
+                    "name": "XSBH",
+                    "dataType": "String",
+                    "caption": "学生编号",
+                    "dataSize": 40,
+                    "groupName": "分组一",
+                    "required": true
+                },
+                {
+                    "name": "XM",
+                    "dataType": "String",
+                    "caption": "姓名",
+                    "dataSize": 60,
+                    "groupName": "分组一",
+                    "placeholder": "这里是提示性文字",
+                    "defaultValue": "aaaa",
+                    "col": 2
+                },
+                {
+                    "name": "XBDM",
+                    "dataType": "String",
+                    "caption": "性别",
+                    "xtype": "radiolist",
+                    "defaultValue": "1",
+                    "dataSize": 1,
+                    "url": "http://res.wisedu.com/fe_components/mock/select.json",
+                    "groupName": "分组二",
+                    "required": true
+                },
+                {
+                    "name": "CSRQ",
+                    "dataType": "String",
+                    "caption": "出生日期",
+                    "dataSize": 30,
+                    "groupName": "分组二",
+                    "col": 2,
+                    "required": true
+                },
+                {
+                    "name": "GZDW",
+                    "dataType": "String",
+                    "caption": "工作单位",
+                    "dataSize": 200,
+                    "groupName": "分组三",
+                    "required": true
+                },
+                {
+                    "name": "LXFS",
+                    "dataType": "String",
+                    "caption": "联系方式",
+                    "dataSize": 200,
+                    "groupName": "分组三",
+                    "required": true
+                },
+                {
+                    "name": "XSZP",
+                    "dataType": "String",
+                    "caption": "学生照片",
+                    "dataSize": 40,
+                    "groupName": "分组三",
+                    "required": true
+
+                },
+                {
+                    "name": "ZSFJ",
+                    "dataType": "String",
+                    "caption": "证书附件",
+                    "dataSize": 40,
+                    "groupName": "分组三",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "routes": {},
+    "code": "0",
+    "datas": {}
+}

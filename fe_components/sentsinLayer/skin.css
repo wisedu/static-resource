@@ -1,0 +1,78 @@
+.layui-layer{
+	border-radius: 2.5px;	
+}
+
+.layui-layer-content{
+	margin: 0 24px;
+}
+.layui-layer-title,
+.overflow .layui-layer-title{
+	background-color:transparent;
+	border-bottom:none;
+	padding: 0 24px;
+	height:80px;
+	line-height:80px;
+	font-size: 16px;
+}
+.layui-layer-wrap{
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.overflow.layui-layer{
+	overflow: visible;
+}
+
+.overflow.layui-layer .layui-layer-content{
+	overflow: visible;
+}
+
+.layui-layer-btn{
+	clear: both;
+	padding: 32px 24px !important;
+}
+.msgbox .layui-layer-btn{
+    text-align: center;
+}
+.layui-layer-btn a{
+	display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    outline: none !important;
+    padding: 6px 8px;
+    font-size: 14px;
+    line-height: 14px;
+    border-radius: 2px;
+    min-width: 80px;
+    user-select: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: all;
+    transition-duration: 300ms;
+}
+.layui-layer-btn a:hover{
+	text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.warning .layui-layer-btn{
+	text-align: center;
+}
+.warning .layui-layer-btn .layui-layer-btn0{
+    border-color: #fec006;
+    background-color: #fec006;
+    color: #fff;
+}
+.danger .layui-layer-btn{
+	text-align: center;
+}
+.danger .layui-layer-btn .layui-layer-btn0{
+    border-color: #e71c0c;
+    background-color: #e71c0c;
+    color: #fff;
+}

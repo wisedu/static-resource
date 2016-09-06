@@ -1,0 +1,65 @@
+/**************
+处理纸质弹框  start
+******************/
+/*****  头部动画基础样式 start ******/
+.bh-paper-pile-dialog-parentTitle-toSmall {
+  -ms-transform: scale(0.96, 1);
+  transform: scale(0.96, 1);
+  height: 32px;
+  background-color: #52b8ae;
+  font-size: 16px;
+  font-weight: normal;
+  color: #ebf7f6;
+  padding: 6px 16px;
+  border-color: transparent;
+}
+.bh-paper-pile-dialog-parentTitle-toRestore {
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+  height: 68px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #888888;
+  padding: 24px 16px;
+  background-color: #ffffff;
+}
+/**************
+处理纸质弹框  end
+******************/
+/***** checkbox 钩钩的垂直位置在ie下有偏移 start ******/
+.jqx-checkbox-check-checked:after {
+  top: 14px;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .jqx-checkbox-check-checked:after {
+    top: 4px;
+  }
+  /* for IE10+ 此写法可以适配到高对比度和默认模式，故可覆盖所有ie10的模式 */
+}
+.jqx-checkbox-default > div > span:after {
+  top: 0px\9\0;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .jqx-checkbox-default > div > span:after {
+    top: -1px !important;
+  }
+  /* for IE10+ 此写法可以适配到高对比度和默认模式，故可覆盖所有ie10的模式 */
+}
+/***** checkbox 钩钩的垂直位置在ie下有偏移 end ******/
+/***** 提示 start ******/
+.bh-tip-content .iconfont {
+  top: 2px;
+}
+/***** 提示 end ******/
+/***** 动画处理 start ******/
+.bh-fadeIn {
+  opacity: 1;
+}
+.bh-fadeOut {
+  opacity: 0;
+}
+/***** 动画处理 end ******/
+/*********jqx 的radio选中时位置不对*************/
+.jqx-radiobutton-check-checked {
+  display: block;
+}

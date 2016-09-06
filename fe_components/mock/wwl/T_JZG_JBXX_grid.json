@@ -1,0 +1,53 @@
+{
+	"datas": {},
+	"models": [{
+		"name": "wqjzg",
+		"url": "wqjzg\/wqjzg.do",
+		"controls": [{
+			"name": "JZGBH",
+			"dataType": "String",
+			"caption": "教职工编号",
+			"dataSize": 20
+		}, {
+			"name": "XM",
+			"dataType": "String",
+			"caption": "姓名",
+			"dataSize": 90
+		}, {
+			"name": "XBDM",
+			"dataType": "String",
+			"caption": "性别",
+			"url": "\/emap\/code\/905840c2-62cd-4053-ab0b-293a6f22e621.do",
+			"xtype": "select",
+			"dataSize": 10
+		}, {
+			"name": "SZDWDM",
+			"dataType": "String",
+			"caption": "所在单位",
+			"url": "\/emap\/code\/1d644931-c034-4f9f-a949-83f35b32500b.do",
+			"xtype": "select",
+			"dataSize": 10
+		}, {
+			"name": "SJTSZDWDM",
+			"dataType": "String",
+			"caption": "双肩挑所在单位",
+			"dataSize": 10
+		}, {
+			"name": "ZYJSZWDM",
+			"dataType": "String",
+			"caption": "专业技术职务",
+			"url": "\/emap\/code\/da739644-ebaa-4410-909e-444606a60ad9.do",
+			"xtype": "tree",
+			"dataSize": 10
+		}, {
+			"name": "ZYJSGWLBDJDM",
+			"dataType": "String",
+			"caption": "专业技术岗位等级",
+			"url": "\/emap\/code\/9b7f1fcb-129f-44cb-b86c-270c74e04478.do",
+			"xtype": "select",
+			"dataSize": 10
+		}]
+	}],
+	"routes": {},
+	"code": "0"
+}

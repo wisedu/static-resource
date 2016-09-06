@@ -1,0 +1,82 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="options-behaviors.html">
+
+<dom-module id="html-checkboxes">
+  <!-- <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
+  <style>
+    /* span{
+    	padding-right: 20px;
+  	} */
+  </style>
+  <template>
+    <div class="checkbox">
+      <template is="dom-repeat" items="[[_optionsFormatted]]">
+        <label>
+          <input type="checkbox" id="{{computeID(name, index)}}" name="{{name}}_checkbox" value="{{item.val}}" checked="{{item.checked}}" />
+          <i class="input-helper"></i>
+          <span>{{item.out}}</span>
+        </label>
+      </template>
+    </div>
+  </template>
+</dom-module>
+
+
+<script>
+  Polymer({
+    is: 'html-checkboxes',
+    behaviors: [OptionsBehavior],
+    listeners: {
+        'tap': 'handleClick'
+    },
+    properties: {
+    	separator:{type:String},//字符串中分隔每项的字符
+    	assign:{type:String},//将单选框标签赋值到数组，而不是输出
+    	labels:{type:Boolean},//在输出中增加<label>标签
+    	label_ids:{type:Boolean},//给<label> 和 <input>设置ID属性
+    	escape:{type:Boolean},//将输出中的/转换(值总是会被转换)
+      readonly:{type:Boolean,observer:"_readonlyChanged"},
+      align:{type:String,observer:"_alignChanged"}
+    },
+    ready: function() {
+    	//
+    },
+    attached: function(){
+    	this.formatOption();
+    },
+    computeID :function(name, index){
+    	return name + "[" + index + "]";
+    },
+    handleClick: function(e){
+    	var allitems = this.querySelectorAll(":checked");
+    	var val = "";
+    	for (var i = 0; i < allitems.length; i++) {
+    		if(i != 0)val += ",";
+    		val += allitems[i].value;
+		  }
+    	this.selected = val;
+      this.fire("selected",{"value":val});
+    },
+    _readonlyChanged: function(){
+      var items = this.querySelectorAll("[type=checkbox]");
+      for (var i = 0; i < items.length; i++){
+        var item = items[i];
+        if(this.readonly)
+          item.disabled = "true";
+        else{
+          item.attributes.removeNamedItem("disabled");
+        }
+      }
+    },
+    _alignChanged: function(){
+      var container = this.querySelector(".checkbox");
+      if(this.align){
+        container.classList.add("vertical");
+      }else{
+        container.classList.remove("vertical");
+      }
+      
+    }
+  });
+
+</script>

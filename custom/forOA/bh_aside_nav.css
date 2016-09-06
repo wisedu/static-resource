@@ -1,0 +1,236 @@
+.bh-asideNav-container h1,
+.bh-asideNav-container ul,
+.bh-asideNav-container li{
+    margin:0;
+    padding: 0;
+}
+.bh-asideNav-container a{
+    text-decoration: none;
+}
+
+.bh-asideNav-container {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #397BC3;
+    z-index: 51051;
+    width: 272px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.24);
+}
+.bh-asideNav-container h1 {
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 24px;
+}
+.bh-asideNav-top {
+    position: relative;
+    padding: 10px 20px;
+}
+.bh-asideNav-top-close {
+    position: absolute;
+    top: 13px;
+    right: 20px;
+    cursor: pointer;
+}
+.bh-asideNav-top-close .iconfont {
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 20px;
+}
+.bh-asideNav-top-close .iconfont.icon-close{
+    background-image: none;
+}
+.bh-asideNav-list {
+    margin-top: 8px;
+}
+.bh-asideNav-list .iconfont {
+    font-size: 18px;
+}
+.bh-asideNav-list a {
+    position: relative;
+    display: block;
+    color: #ffffff;
+}
+.bh-asideNav-list li {
+    height: 42px;
+    line-height: 40px;
+    font-size: 14px;
+}
+.bh-asideNav-list li li {
+    font-size: 12px;
+}
+.bh-asideNav-list li li div {
+    margin-left: 24px;
+}
+.bh-asideNav-list li li li div {
+    margin-left: 48px;
+}
+.bh-asideNav-list li div {
+    padding-left: 24px;
+}
+.bh-asideNav-list li div i {
+    margin-right: 8px;
+}
+.bh-asideNav-list li div i img{
+    width:16px;
+    height: 16px;
+    vertical-align: middle;
+}
+.bh-asideNav-list .bh-asideNav > li a:hover {
+    background-color: rgba(33, 150, 243, 0.16);
+}
+.bh-asideNav-splite {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.bh-asideNav-dropdown {
+    -webkit-transition: height 0.45s;
+    -moz-transition: height 0.45s;
+    -ms-transition: height 0.45s;
+    -o-transition: height 0.45s;
+    transition: height 0.45s;
+}
+.bh-asideNav-dropdown:after {
+    content: "+";
+    top: 0;
+    right: 20px;
+    font-size: 24px;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.48);
+    display: block;
+    position: absolute;
+}
+.bh-asideNav-dropdown:before {
+    content: "";
+    top: 18px;
+    right: 23px;
+    width: 12px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.48);
+    display: none;
+    position: absolute;
+}
+.bh-asideNav-dropdown.bh-asideNav-open:after {
+    display: none;
+}
+.bh-asideNav-dropdown.bh-asideNav-open:before {
+    display: block;
+}
+.bh-asideNav-container .bh-asideNav-open {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+.bh-asideNav-container .bh-asideNav-open ul {
+    display: block;
+}
+.bh-asideNav > li {
+    position: relative;
+    list-style: none;
+    overflow: hidden;
+}
+.bh-asideNav-active {
+    background-color: #5CA4F1;
+}
+@-webkit-keyframes bh-intoLeft {
+    0% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+@keyframes bh-intoLeft {
+    0% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+.bh-intoLeft {
+    -webkit-animation-name: bh-intoLeft;
+    animation-name: bh-intoLeft;
+}
+@-webkit-keyframes bh-asideNav-fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+@keyframes bh-asideNav-fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+.bh-asideNav-fadeIn {
+    -webkit-animation-name: bh-asideNav-fadeIn;
+    animation-name: bh-asideNav-fadeIn;
+}
+@-webkit-keyframes bh-asideNav-fadeOut {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes bh-asideNav-fadeOut {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.bh-asideNav-fadeOut {
+    -webkit-animation-name: bh-asideNav-fadeOut;
+    animation-name: bh-asideNav-fadeOut;
+}
+.bh-animated {
+    -webkit-animation-duration: 0.45s;
+    animation-duration: 0.45s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.bh-modal-backdrop {
+    z-index: 51040;
+    background-color: #000;
+    opacity: .5;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0
+}
+@-webkit-keyframes bh-outLeft {
+    0% {
+        -webkit-transform: none;
+        transform: none;
+    }
+    100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+@keyframes bh-outLeft {
+    0% {
+        -webkit-transform: none;
+        transform: none;
+    }
+    100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+.bh-outLeft {
+    -webkit-animation-name: bh-outLeft;
+    animation-name: bh-outLeft;
+}

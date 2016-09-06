@@ -1,0 +1,10 @@
+.custom .dropzone {
+    border: 2px dashed #0087F7;
+    border-radius: 2px;
+    background: white;
+}
+
+.custom .dropzone .dz-preview.dz-file-preview .dz-image, .dropzone .dz-preview .dz-image{
+	border-radius: 2px;
+}
+

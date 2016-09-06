@@ -1,0 +1,16 @@
+body .bh-form-groupname {
+	border-left-color: #ef971c;
+}
+
+.bh-form-horizontal .bh-form-block {
+	margin-bottom: 36px !important;
+}
+
+.bh-rules-header h4 .iconfont {
+	margin-right: 8px;
+    vertical-align: middle;
+}
+
+.bh-advancedQuery-groupName {
+	min-width: 40px!important;
+}

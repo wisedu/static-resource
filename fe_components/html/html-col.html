@@ -1,0 +1,79 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="html-col">
+  <!-- <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
+  <style>
+    /* span{
+    	padding-right: 20px;
+  	} */
+  </style>
+  <template>
+    <div class="form-group">
+        <label class="control-label " title$="{{label}}">{{label}}</label>
+        <div class="control-entry ">
+          <content></content>
+        </div>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "html-col",
+    properties: {
+    	label:{type:String},
+      col:{type:Number},
+      required:{type:String}
+    },
+    ready: function() {
+      
+    },
+    attached: function(){
+      var cols = $(Polymer.dom(this).parentNode).attr("cols");
+      var wide = 12 / cols * (this.col||1);
+      
+      var sCurrentClass = this.$$(".form-group").className;
+      sCurrentClass = (sCurrentClass?sCurrentClass:"");
+      if(sCurrentClass.indexOf(" col-md-" + wide) == -1)
+        this.$$(".form-group").className += " col-md-" + wide;
+      
+      var wide_label = " col-md-4";
+      var wide_control = " col-md-8";
+      switch(this.col+"-"+cols){
+        case "2-3":
+          wide_label = " col-md-2";
+          wide_control = " col-md-10";
+        break;
+        case "3-3":
+          wide_label = " long";
+          wide_control = " long";
+        break;
+        case "2-2":
+          wide_label = " col-md-2";
+          wide_control = " col-md-10";
+        break;
+        case "1-3":
+        default:
+        break;
+      }
+      sCurrentClass = this.$$(".control-label").className;
+      sCurrentClass = (sCurrentClass?sCurrentClass:"");
+      if(sCurrentClass.indexOf(wide_label + (this.required?" validate":"")) == -1)
+        this.$$(".control-label").className += " " + wide_label + (this.required?" validate":"");
+        
+      sCurrentClass = this.$$(".control-entry").className;
+      sCurrentClass = (sCurrentClass?sCurrentClass:"");
+      if(sCurrentClass.indexOf(wide_control) == -1)
+        this.$$(".control-entry").className += " " + wide_control;
+      
+      var items = Polymer.dom(this.$$("content")).getDistributedNodes();
+      if(items.length > 0){
+        sCurrentClass = items[0].className;
+        sCurrentClass = (sCurrentClass?sCurrentClass:"");
+        if(sCurrentClass.indexOf("form-control") == -1)
+          items[0].className += " form-control";
+      }
+    }
+});
+
+</script>

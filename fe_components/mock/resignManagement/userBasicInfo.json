@@ -1,0 +1,12 @@
+{
+    "image": "../public/images/user.png",
+    "name": "田蕊",
+    "basicInfo": [
+        {"key": "工号", "value": "100962"},
+        {"key": "性别", "value": "女"},
+        {"key": "出生年月", "value": "1978/06/25"},
+        {"key": "单位", "value": "化工学院能源管理系"},
+        {"key": "岗位", "value": "实验室管理教师"},
+        {"key": "党政职务", "value": "总书记"}
+    ]
+}
